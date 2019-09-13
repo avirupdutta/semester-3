@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Addition</title>
+</head>
+<body>
+	<p align="center">This is my first js code</p>
+	<p align="center">ADDITION</p>
+	<p id="addResult" align="center"></p>
+	<p id="username" align="center"></p>
+	<p id="usernameLen" align="center"></p>
+	<p id="searchSection" align="center"></p>
+	<p id="demo" align="center"></p>
+
+	<script type="text/javascript">
+		//Embeded js code
+		var x=3;
+		var y=2;
+		var z=x+y;
+		var username="this is username";
+		var usernameLength=username.length;
+		var d=new Date();
+		document.getElementById("demo").innerHTML="today: "+d;
+		document.getElementById("addResult").innerHTML="Result: "+z;
+		document.getElementById("username").innerHTML="Username: "+username;
+		document.getElementById("usernameLen").innerHTML=usernameLength;
+		var position=username.indexOf("user");
+		if (position==-1) 
+		{
+			document.getElementById("searchSection").innerHTML="NOT FOUND";
+		}
+		else
+		{
+			document.getElementById("searchSection").innerHTML="FOUND: Location->"+position;
+		}
+	</script>
+</body>
+</html>

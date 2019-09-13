@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Page</title>
+</head>
+<body>
+	<center>
+		<h1><u>Welcome to the Registration Page</u></h1>
+		<form name="myForm">
+		<table>
+			<tr>
+				<td>Username:</td>
+				<td><input type="text" id="username"></td>
+			</tr>
+			<tr>
+				<td>Email Id:</td>
+				<td><input type="text" id="Email" placeholder="whatever@example.com"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<!-- <td><input type="button" value="Register" style="background-color: GRAY" onclick="Validate()"></td> -->
+				<td><button style="background-color: GRAY" onclick="Validate()">Register</button></td>
+			</tr>
+		</table>
+		</form>
+	</center>
+		<script type="text/javascript">
+			function Validate()
+			{
+				ValidateData();
+				ValidateEmail();
+			}
+			function ValidateData() 
+			{
+  				var userName=document.myForm.username.value;
+  				
+  				if (userName=="") 
+  				{
+  					alert("Username is Missing");
+  				}
+  				else if(userName.length<8||userName.length>15)
+  				{
+  					alert("Username should be between 8 to 15 characters");
+  				}
+  				else
+  				{
+  					alert("Welcome "+userName);
+  				}
+			}
+			function ValidateEmail()
+			{
+				var emailId=document.myForm.Email.value;
+				if (emailId=="") 
+  				{
+  					alert("Email Id is missing");
+  				}
+			}
+		</script>
+	
+</body>
+</html>

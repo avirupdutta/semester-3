@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Submission Form</title>
+</head>
+<body>
+	<center>
+		<h1><u>Welcome to the Registration Page</u></h1>
+		<br><br><br><br>
+		<form>
+		<table>
+			<tr>
+				<td>Username:</td>
+				<td><input type="text" name="username" required></td>
+			</tr>
+			<tr>
+				<td>Email Id:</td>
+				<td><input type="text" name="Email" placeholder="whatever@example.com" required></td>
+			</tr>
+			<tr>
+				<td>Mobile No:</td>
+				<td><input type="text" name="Mobile" placeholder="+91**********" required></td>
+			</tr>
+			<tr>
+				<td>Date of Birth:</td>
+				<td><input type="date" name="Date" required></td>
+			</tr>
+			<tr>
+				<td>Gender:</td>
+				<td><input type="radio" name="gender" value="male"> Male<br>
+					<input type="radio" name="gender" value="female"> Female<br>
+				</td>
+			</tr>
+			<tr>
+				<td>New Password:</td>
+				<td><input type="password" name="password" required></td>
+			</tr>
+			<tr>
+				<td>Confirm Password:</td>
+				<td><input type="password" name="password" required></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><button style="background-color: GRAY" onclick="Warning()">Register</button></td>
+			</tr>
+		</table>
+		<br><br><br><br>
+		<marquee>Last date of form fill up is 26th August 2019</marquee>
+		</form>
+		<script>
+			function Warning() 
+			{
+  				alert("Your PC is about to explode");
+			}
+		</script>
+	</center>
+</body>
+</html>
