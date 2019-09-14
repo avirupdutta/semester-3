@@ -1,67 +1,52 @@
 #include <stdio.h>
-struct Process{
-    int p_id;
-    int arrivalTime;
-    int burstTime;
-    int waitingTime;
-};
-
-struct Process * bubbleSort(struct Process arr[], int arrLen);
-
-void main(){
-    int num, i;
-    float avgWtTime;
-    printf("Enter the num of processes: ");
-    scanf("%d", &num);
-    
-    struct Process allProcess[num];
-    struct Process *sortedArr;
-    
-    // Creating and storing all processes inside allProcess Array
-    
-    for(i = 0; i < num; i++){
-        printf("\nEnter the arrival time of p:%d -> ", i);
-        scanf("%d", &allProcess[i].arrivalTime);
-        
-        printf("Enter the burst time of p:%d -> ", i);
-        scanf("%d", &allProcess[i].burstTime);
-        
-        allProcess[i].p_id = i;
+int main()
+{
+	printf("Enter the No. of process\n");
+	int n,i,j,temp=0,burst=0;
+	scanf("%d",&n);
+	int arr_time[n], burst_time[n],wait_time[n];
+	float average=0.0;
+	for (i = 0; i < n; ++i)
+	{
+		printf("Enter the arrival time\n");
+		scanf("%d",&arr_time[i]);
+		printf("Enter the Burst time\n");
+		scanf("%d",&burst_time[i]);
+		for (j = i; j >0; j--)
+		{
+			if(arr_time[j]<arr_time[j-1])
+			{
+				temp=arr_time[j];
+				arr_time[j]=arr_time[j-1];
+				arr_time[j-1]=temp;
+				temp=burst_time[j];
+				burst_time[j]=burst_time[j-1];
+				burst_time[j-1]=temp;
+			}
+		}
+	}
+    printf("Arrival time\n");
+    for (i = 0; i < n; ++i)
+    {
+        printf("%d\n",arr_time[i]);
     }
-    
-    sortedArr = bubbleSort(allProcess, num);
-    
-    // Setting the waiting time accordingly
-    sortedArr[0].waitingTime = 0;
-    for(i=1; i<num; i++){
-        sortedArr[i].waitingTime = (sortedArr[i-1].burstTime + sortedArr[i-1].waitingTime);   
-        
+    printf("Burst Time\n");
+    for (i = 0; i < n; ++i)
+    {
+        printf("%d\n",burst_time[i]);
     }
-    
-    // Displaying the 3 arrays
-    printf("\nOutput:-\n====================\n");
-    for(i = 0; i<num; i++){
-        printf("p%d has arrival time = %d, burst time = %d and waiting time = %d\n", sortedArr[i].p_id, sortedArr[i].arrivalTime, sortedArr[i].burstTime, sortedArr[i].waitingTime);
-    }
-    
-    // Calculating the average waiting time from all processes
-    avgWtTime=0.0;
-    for(i = 0; i<num; i++){
-        avgWtTime += sortedArr[i].waitingTime;
-    }
-    printf("\nAverage Waiting Time = %f \n", (avgWtTime/num));
-}
-
-struct Process * bubbleSort(struct Process arr[], int arrLen){
-    int i, j;
-    for(i=0; i<arrLen; i++){
-        for(j=0; j<arrLen-i-1; j++){
-            if(arr[j].arrivalTime > arr[j+1].arrivalTime){
-                struct Process temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
-            }
-        }
-    }
-    return arr;
+	for (i = 0; i < n; ++i)
+	{
+		wait_time[i]=burst-arr_time[i];
+		burst=burst+burst_time[i];
+	}
+	printf("Waiting Time\n");
+	for (i = 0; i < n; ++i)
+	{
+		printf("%d\n",wait_time[i]);
+		average=average+wait_time[i];
+	}
+	average=average/n;
+	printf("Average Waiting Time: %f\n",average);
+	return 0;
 }
