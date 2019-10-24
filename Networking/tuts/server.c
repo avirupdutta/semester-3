@@ -16,7 +16,7 @@ int main(int argc, char const *argv[]) {
     
     // if no port num is provided, terminate the program
     if(argc < 2){
-        fprintf(stderr," Port number not provided!");
+        fprintf(stderr," Port number not provided!\n");
         exit(1);
     }
 
@@ -25,7 +25,7 @@ int main(int argc, char const *argv[]) {
         sock -> socket
         fd-> file descriptor
     */
-    int sockfd, newsockfd, portno;
+    int sockfd, newsockfd, portno, n, clilen;
     char buffer[255];
     
     struct sockaddr_in serv_addr, cli_addr;
@@ -58,10 +58,10 @@ int main(int argc, char const *argv[]) {
     // The listen system call allows the process to listen on the socket for connections.
     listen(sockfd, 5);
 
-    int clilen = sizeof(cli_addr);
+    clilen = sizeof(cli_addr);
 
     // The accept() system call causes the process to block until a client connects to the server.
-    int newscocfd = accept(sockfd, (struct sockaddr *) &cli_addr, &clilen);
+    newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr, &clilen);
 
     if(newsockfd < 0){
         error("Error on Accept!");
@@ -70,7 +70,7 @@ int main(int argc, char const *argv[]) {
     while (1) {
         
         bzero(buffer, 256);
-        int n = read(newsockfd, buffer, 255);
+        n = read(newsockfd, buffer, 255);
 
         if(n < 0)
             error("Error on reading!");
