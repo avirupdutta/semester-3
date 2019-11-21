@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1573382745 source:d:\programming\c\driv-license\main.c
+	<stdio.h>
+	<stdlib.h>
+

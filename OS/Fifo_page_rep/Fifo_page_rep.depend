@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1573371443 source:d:\programming\c\fifo_page_rep\main.c
+	<stdio.h>
+	<stdlib.h>
+

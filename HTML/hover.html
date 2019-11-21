@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hover</title>
+</head>
+<body>
+	<style>
+		.pop {
+	  background-color: yellow;
+	  padding: 20px;
+	  display: none;
+		}
+		span:hover + .pop {
+		  display: block;
+		}
+	* {
+	  box-sizing: border-box;
+		}
+	.zoom {
+	  padding: 50px;
+	  background-color: green;
+	  transition: transform .2s;
+	  width: 200px;
+	  height: 200px;
+	  margin: 0 auto;
+		}
+	.zoom:hover {
+	  transform: scale(1.5); 
+	  background-color: red;
+		}
+	</style>
+	<h1>Zoom on Hover</h1>
+	<p>Hover over the element.</p>
+	<div class="zoom"></div>
+	<br>
+	<br>
+	<h1>Pop on hover</h1>
+	<span>Hover over me!</span>
+	<div class="pop">I will show on hover</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1565023958 source:d:\programming\c\ifelseshorthand\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
